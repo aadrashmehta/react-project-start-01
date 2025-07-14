@@ -1,12 +1,34 @@
+import { useState } from 'react';
+
 import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header.jsx';
 import CoreConcepts from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
+import { EXAMPLES } from './data.js';
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState();
+
   function handleSelect(selectedButton) {
-		console.log(selectedButton);
+		setSelectedTopic(selectedButton);
+    console.log(selectedButton);
 	}
+
+  let tabContent = <p>Please select a topic.</p>;
+
+  if(selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{ EXAMPLES[selectedTopic].title }</h3>
+        <p>{ EXAMPLES[selectedTopic].description }</p>
+        <pre>
+          <code>
+            { EXAMPLES[selectedTopic].code }
+          </code>
+        </pre>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -33,6 +55,24 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+
+          {/* Using conditional operators */}
+          {/* { !selectedTopic ? (<p>Please select a topic.</p>) : null }
+          { selectedTopic ? (
+            <div id="tab-content">
+              <h3>{ EXAMPLES[selectedTopic].title }</h3>
+              <p>{ EXAMPLES[selectedTopic].description }</p>
+              <pre>
+                <code>
+                  { EXAMPLES[selectedTopic].code }
+                </code>
+              </pre>
+            </div>
+            ) : null 
+          } */}
+
+          {tabContent}
+
         </section>
       </main>
     </div>
