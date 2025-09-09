@@ -76,7 +76,7 @@ main h2 {
   text-align: left;
 }
 
-#examples menu {
+#examples menu,#examples ul {
   margin: 1rem 0;
   padding: 0;
   display: flex;
@@ -84,7 +84,7 @@ main h2 {
   list-style: none;
 }
 
-#examples menu button {
+#examples menu button,#examples ul button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 6px;
@@ -105,7 +105,15 @@ main h2 {
   background-color: #7925d3;
   color: #ebe7ef;
 }
+#examples ul button:hover {
+  background-color: #1b082f;
+  color: #ebe7ef;
+}
 
+#examples ul button.active {
+  background-color: #7968FF;
+  color: #ebe7ef;
+}
 #tab-content {
   padding: 1rem;
   border-radius: 6px;
