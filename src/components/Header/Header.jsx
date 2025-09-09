@@ -1,4 +1,4 @@
-import imageSrc from '../assets/react-core-concepts.png';
+import imageSrc from '../../assets/react-core-concepts.png'; // Importing the image for the header
 import './Header.css'; // Assuming you have a CSS file for styling the header
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
